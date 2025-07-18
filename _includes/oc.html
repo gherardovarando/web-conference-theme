@@ -2,9 +2,9 @@
 {%- for chair in site.chairs -%}
    <h3>{{ chair.type }}</h3>
 <ul>
-  {% for person in chair.people %}
-  <li> {%- include person.html separator = "|" -%} </li>
-  {%endfor%}
+{%- for person in chair.people -%}
+<li> {%- include person.html separator = "|" -%} </li>
+{%- endfor -%}
 </ul>
 {%- endfor -%}
 {%- endif -%}
