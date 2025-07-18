@@ -1,6 +1,6 @@
 {%- if site.chairs -%}
 {%- for chair in site.chairs -%}
-<h3>{{ chair.type }}</h3>
+   <h3>{{ chair.type }}</h3>
 <ul>
 {%- for person in chair.people -%}
 <li> {%- include person.html separator = "|" -%} </li>
