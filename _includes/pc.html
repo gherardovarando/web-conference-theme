@@ -1,0 +1,7 @@
+{%- if site.data.pc -%}
+<ul>
+	{%- for person in site.data.pc -%}
+	<li>{%- include person.html separator = "|" -%}</li>
+	{%- endfor -%}
+</ul>
+{%- endif -%}

@@ -1,0 +1,8 @@
+<figure>
+	<img src="{{ include.file | relative_url }}" 
+	     style="max-width: {{ include.max-width | default: '100%' }}; width: {{ include.width | default: 100px }};"
+	     alt="{{ include.alt }}"/>
+	{% if include.caption %}
+	<figcaption>{{ include.caption }}</figcaption>
+	{% endif %}
+</figure>

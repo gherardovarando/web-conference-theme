@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<h1> {{ site.short }} {{site.title}} </h1>
+
+<div class = "flex-container">
+
+
+<div style="flex-basis:50%;">  
+{{ content }} 
+</div>
+
+
+<div style="flex-basis:35%;">  
+
+	<h2> Important Dates </h2>
+	{% include listdates.html %}
+
+	<h2> <a href={% link news.md %}> Updates</a> </h2>
+	{% include smallnews.html %}
+
+</div>
+
+
+
+</div>
+

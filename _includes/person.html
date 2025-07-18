@@ -1,0 +1,13 @@
+{%- if person.url -%} 
+<a href={{person.url}}><b>{{person.name}}</b></a>
+{%- else -%}
+<b>{{person.name}}</b>
+{%- endif -%}
+{%- if person.affiliation -%}
+{%-if include.separator-%}
+{{ include.separator }}
+{%-else-%}
+ | 
+{%-endif-%}
+{{person.affiliation}} 
+{%- endif -%}
