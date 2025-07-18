@@ -124,6 +124,11 @@ div.title {
   color: black;
 }
 
+
+.topnav a:visited:hover {
+  color: #729FCF;
+}
+
 .topnav div.top-button:hover {
   color: #729FCF;
 }
@@ -155,6 +160,10 @@ div.title {
 
 .topnav a.plink:visited {
         color: black;
+}
+
+.topnav a.plink:visited:hover {
+        color: #729FCF;
 }
 
 

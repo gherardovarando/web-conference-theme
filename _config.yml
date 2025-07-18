@@ -101,14 +101,6 @@ dates:
 - 2026-01-11
 
 
-submission:
-  # Whether to show the submission site.
-  show: true 
-  # The URL of the submission site.
-  url: https://openreview.net/ 
-  # The name of the submission site (e.g. Microsoft CMT Website)
-  name: Openreview 
-
 deadlines:
   # Fill in the key dates as below.
   # we use ISO8601 date and time format preferably  
