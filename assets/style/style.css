@@ -236,6 +236,8 @@ div.bibtexout.closed {
 	.subnav {
 		display: block;
 	}
+
+
 	.topnav a:not(:first-child) {display: none;}
 	.topnav div.top-button:not(:first-child) {display: none;}
 	.topnav a.menubutton {

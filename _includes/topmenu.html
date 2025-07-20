@@ -22,7 +22,6 @@
 			{% for pg in cl.docs %}
 			{% if pg.title %}{% unless pg.hide %}
 			<a {% if pg.url == page.url %} class = "active" ,{% endif %} href="{{ pg.url | relative_url }}">{{ pg.title }}</a>
-			<br></br>
 			{% endunless %}{% endif %}
 			{% endfor %}
 		</nav>
