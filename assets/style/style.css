@@ -7,6 +7,13 @@ body {
  display: none;
 }
 
+body a {
+	color: #2a5dfa;
+}
+
+body a:visited {
+	color: #2a5dfa;
+}
 
 
 article { 
@@ -79,6 +86,11 @@ div.title {
   }
 
   body a {
+    color: #809fff;
+  }
+
+
+  body a:visited {
     color: #809fff;
   }
 }
@@ -180,12 +192,12 @@ div.title {
 
 
 .topnav div:hover .subnav {
-  display: block;
+  display: grid;
 }
 
 
 .topnav div:active .subnav {
-  display: block;
+  display: grid;
 }
 
 .topnav .menubutton {
