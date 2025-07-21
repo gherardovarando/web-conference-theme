@@ -1,0 +1,13 @@
+{%- if event.url -%} 
+<a href="{{event.url}}"><b>{{event.location}}</b></a>
+{%- else -%}
+<b>{{event.location}}</b>
+{%- endif -%}
+{%- if event.year -%}
+{%-if include.separator-%}
+{{ include.separator }}
+{%-else-%}
+ | 
+{%-endif-%}
+{{event.year}} 
+{%- endif -%}

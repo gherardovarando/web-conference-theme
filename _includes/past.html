@@ -1,0 +1,7 @@
+{%- if site.past -%}
+<ul>
+{%- for event in site.past -%}
+<li> {%- include pastevent.html separator = "|" -%} </li>
+{%- endfor -%}
+</ul>
+{%- endif -%}

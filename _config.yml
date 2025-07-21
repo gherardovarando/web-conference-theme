@@ -158,3 +158,8 @@ links:
      url: https://twitter.com/jekyllrb
    - name: openreview 
      url: https://openreview.net/
+
+past: 
+  - location: city, country
+    year: 1985
+    url: https://www.google.com/
