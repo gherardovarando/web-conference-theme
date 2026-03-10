@@ -1,0 +1,109 @@
+---
+layout: default
+---
+
+
+{{ content }} 
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<div class="flex-container">
+	<div id="map" style="height:600px; flex-basis:50%;" class="no-small"></div>
+
+  <div style="flex-basis:35%;">
+    <button class="no-small btn-reset" onclick="resetMapView()">↺ Reset Map View</button>
+
+    {% for place in site.places %}
+      {% assign display_icon = place.icon | default: "📍" %}
+      <div class="place-card">
+        <div onclick="activatePoint({{ place.id | jsonify | escape }})" style="cursor: pointer;">
+          <span class="tag-{{ place.category | slugify }}">
+            [{{ place.category | upcase }}]
+          </span>
+          <div style="display: flex; align-items: center; gap: 10px; margin: 8px 0;">
+              <span style="font-size: 24px;">
+                {% if display_icon contains "." %}
+                  <img src="{{ display_icon | relative_url }}" style="width:24px; vertical-align:middle;">
+                {% else %}
+                  {{ display_icon }}
+                {% endif %}
+              </span>
+              <div class="title">{{ place.name }}</div>
+          </div>
+          <div style="font-size: 0.9em; color: #666;">{{ place.info }}</div>
+        </div>
+
+        {% if place.gmaps %}
+          <div style="margin-top: 10px;">
+            <a href="{{ place.gmaps }}" target="_blank" rel="noopener">Google Maps ↗</a>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  const mapElement = document.getElementById('map');
+  let map, markers = {};
+  const markerGroup = new L.featureGroup();
+
+  if (mapElement && window.getComputedStyle(mapElement).display !== 'none') {
+    map = L.map('map', { zoomControl: false });
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© CARTO'
+    }).addTo(map);
+
+    {% for place in site.places %}
+    (function() {
+      const id = {{ place.id | jsonify }};
+      const lat = {{ place.lat }};
+      const lng = {{ place.lng }};
+      const name = {{ place.name | jsonify }};
+      {% assign icon_to_use = place.icon | default: "📍" %}
+      
+      let iconHtml = '';
+      let size = [50, 50]; 
+
+      {% if icon_to_use contains "." %}
+        iconHtml = `<div class="logo-marker"><img src="{{ icon_to_use | relative_url }}" style="width:85px; background:white; padding:3px;"></div>`;
+      {% else %}
+        iconHtml = `<div class="emoji-marker" style="font-size:35px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));">${ {{ icon_to_use | jsonify  }} }</div>`;
+      {% endif %}
+
+      const customIcon = L.divIcon({
+        html: iconHtml,
+        className: 'clear-marker',
+        iconSize: size,
+        iconAnchor: [size[0]/2, size[1]/2],
+        popupAnchor: [0, -(size[1]/2)]
+      });
+
+      const m = L.marker([lat, lng], { icon: customIcon })
+        .addTo(map)
+        .bindPopup(`<b>${name}</b><br>{{ place.info | escape }}`);
+        
+      markerGroup.addLayer(m);
+      markers[id] = m;
+    })();
+    {% endfor %}
+
+    resetMapView();
+  }
+
+  function resetMapView() {
+    if (map && Object.keys(markers).length > 0) {
+      map.fitBounds(markerGroup.getBounds(), { padding: [40, 40], maxZoom: 16 });
+    }
+  }
+
+  function activatePoint(id) {
+    if (map && markers[id]) {
+      map.flyTo(markers[id].getLatLng(), 17, { duration: 1.2 });
+      markers[id].openPopup();
+    }
+  }
+</script>

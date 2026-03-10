@@ -225,6 +225,52 @@ div.bibtexout.closed {
 	display: none;
 }
 
+
+/* Map Page Specific Styles */
+.map-layout {
+  display: flex;
+  height: 600px;
+  border: 1px solid #3465A4; 
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#map { flex: 1; background: #f8f9fa; z-index: 1; }
+
+.map-sidebar {
+  width: 320px;
+  padding: 0;
+  overflow-y: auto;
+  background: white;
+  border-left: 2px solid #3465A4;
+}
+
+.place-card {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s ease;
+}
+
+.place-card:hover { background: #f2dede; } 
+
+.tag-hotel { color: #1e7e34; font-weight: bold; font-size: 0.8em; }
+.tag-social { color: #2a5dfa; font-weight: bold; font-size: 0.8em; }
+.tag-venue { color: #d93025; font-weight: bold; font-size: 0.8em; }
+
+.btn-reset {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #3465A4;
+  color: white !important;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+
 @media screen and (max-width: 800px) {
 
 	article {
@@ -234,15 +280,15 @@ div.bibtexout.closed {
 	}	  
 
 	.flex-container {
-                flex-direction: column;
-        }
+		flex-direction: column;
+	}
 
-        .topnav, .subnav {
-                 padding-left: 0px;
-                 padding-right: 0px;
-	         max-height: 50%;
-		 overflow-y: auto;
-        }
+	.topnav, .subnav {
+		padding-left: 0px;
+		padding-right: 0px;
+		max-height: 50%;
+		overflow-y: auto;
+	}
 
 
 	.subnav {
@@ -286,4 +332,7 @@ div.bibtexout.closed {
 		text-align: left;
 		float: none;
 	}
+
+	.no-small {display: none !important;}
+
 }

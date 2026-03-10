@@ -159,6 +159,26 @@ links:
    - name: openreview 
      url: https://openreview.net/
 
+places:
+  - id: "venue"
+    name: "IVAM - Institut Valencià d'Art Modern"
+    category: "venue"
+    lat: 39.4802
+    lng: -0.3824
+    icon: "/assets/logo.png"
+    gmaps: "https://maps.app.goo.gl/p5GD6HXJraTMJLYc7" # Manual link
+    info: "Main Conference Venue"
+
+  - id: "hotel-nh"
+    name: "NH Valencia Center"
+    category: "hotel"
+    lat: 39.4825
+    lng: -0.3858
+    icon: 🏨
+    gmaps: "https://maps.app.goo.gl/UoiLjoKJgBCAUdqJ6" # Manual link
+    info: "5-minute walk from IVAM"
+
+
 past: 
   - location: city, country
     year: 1985
