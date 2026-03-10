@@ -11,17 +11,18 @@ layout: default
 <div class="flex-container">
 	<div id="map" style="height:600px; flex-basis:50%;" class="no-small"></div>
 
-  <div style="flex-basis:35%;">
+    <div style="flex-basis:35%;">
     <button class="no-small btn-reset" onclick="resetMapView()">↺ Reset Map View</button>
-
+    
+    <div style="overflow:auto; height:600px;"> 
     {% for place in site.places %}
       {% assign display_icon = place.icon | default: "📍" %}
-      <div class="place-card">
+      <div class="card">
         <div onclick="activatePoint({{ place.id | jsonify | escape }})" style="cursor: pointer;">
-          <span class="tag-{{ place.category | slugify }}">
+          <span class="{{ place.class | slugify }}" style="font-weight: bold; font-size: 0.8em;">
             [{{ place.category | upcase }}]
           </span>
-          <div style="display: flex; align-items: center; gap: 10px; margin: 8px 0;">
+          <div class="flex-container">
               <span style="font-size: 24px;">
                 {% if display_icon contains "." %}
                   <img src="{{ display_icon | relative_url }}" style="width:24px; vertical-align:middle;">
@@ -41,6 +42,7 @@ layout: default
         {% endif %}
       </div>
     {% endfor %}
+    </div>
   </div>
 </div>
 

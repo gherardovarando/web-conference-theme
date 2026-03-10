@@ -163,20 +163,67 @@ places:
   - id: "venue"
     name: "IVAM - Institut Valencià d'Art Modern"
     category: "venue"
+    class: important
     lat: 39.4802
     lng: -0.3824
     icon: "/assets/logo.png"
     gmaps: "https://maps.app.goo.gl/p5GD6HXJraTMJLYc7" # Manual link
     info: "Main Conference Venue"
-
   - id: "hotel-nh"
     name: "NH Valencia Center"
     category: "hotel"
+    class: information
     lat: 39.4825
     lng: -0.3858
     icon: 🏨
     gmaps: "https://maps.app.goo.gl/UoiLjoKJgBCAUdqJ6" # Manual link
     info: "5-minute walk from IVAM"
+  - id: "hotel-nh-2"
+    name: "NH Valencia Center"
+    category: "hotel"
+    class: information
+    lat: 39.4925
+    lng: -0.3858
+    icon: 🏨
+    gmaps: "https://maps.app.goo.gl/UoiLjoKJgBCAUdqJ6" # Manual link
+    info: "5-minute walk from IVAM"
+  - id: "seda"
+    name: "La Lonja de la Seda de Valencia" 
+    category: "point of interest"
+    class: success
+    lat: 39.47457415499538 
+    lng: -0.37837929939902687
+    icon: 🏛️
+    gmaps: "https://maps.app.goo.gl/HLf8k5MiBg8qTLTs8"
+    info: "This grandiose building illustrates the city's Medieval riches with elaborate stonework & carvings."
+  - id: "mercado-central"
+    name: "Mercado Central de Valencia"
+    category: "point of interest"
+    class: success
+    lat: 39.473611
+    lng: -0.378889
+    icon: 🍅
+    gmaps: "https://maps.app.goo.gl/uXv7j7W1Yx5"
+    info: "One of Europe's oldest running food markets, housed in a stunning Modernista building with colorful tiles and stained glass."
+  - id: "catedral"
+    name: "Catedral de Valencia y El Miguelete"
+    category: "point of interest"
+    class: success
+    lat: 39.475253
+    lng: -0.375441
+    icon: ⛪
+    gmaps: "https://maps.app.goo.gl/z9wYyJ1vB2Q"
+    info: "A mix of Romanesque, Gothic, and Baroque styles, famously housing the Holy Chalice and the iconic Miguelete bell tower."
+  - id: "torres-quart"
+    name: "Torres de Quart"
+    category: "point of interest"
+    class: success
+    lat: 39.4759
+    lng: -0.3837
+    icon: 🏰
+    gmaps: "https://maps.app.goo.gl/k7M6Lp5D9E2"
+    info: "Imposing 15th-century defensive towers that still show the scars of Napoleon's cannons from the Siege of Valencia."
+
 
 
 past: 
