@@ -21,11 +21,11 @@ remote_theme: gherardovarando/web-conference-theme
 
 You can use the following classes in the deadlines and places, you can also use it in HTML or Markdown directly (e.g. `{: .important}`) 
 
-- **important** `#F2DEDE` (bg), `#A94442` (text)
-- **warning** `#FCf8E3` (bg), `#8A6D3B` (text)
-- **success** `#DFF0D8` (bg), `#3C763D` (text)
-- **optional** `#F5F5F5` (bg), `#777777` (text)
-- **information** `#E8F0FE` (bg), `#1967D2` (text)
+- **important** `#F2DEDE` (bg), `#A94442` (text) {: .important}
+- **warning** `#FCf8E3` (bg), `#8A6D3B` (text) {: .warning}
+- **success** `#DFF0D8` (bg), `#3C763D` (text) {: .success}
+- **optional** `#F5F5F5` (bg), `#777777` (text) {: .optional}
+- **information** `#E8F0FE` (bg), `#1967D2` (text) {: .information}
 
 #### Home 
 
