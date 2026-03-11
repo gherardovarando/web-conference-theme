@@ -1,7 +1,10 @@
 <ul>
 	{% for deadline in site.deadlines %} 
 	<li>    {% if deadline.important  %}<strong>{% endif %}
-			{{ deadline.name }}: {% if deadline.text %}{{ deadline.text }}{% elsif deadline.time %}<time datetime="{{ deadline.time }}">{{ deadline.time | date: "%A, %-d %B %Y %I:%M%P (%Z)" }}{% if site.TZ %} ({{ site.TZ }}){% endif %}</time>{% elsif deadline.date %}<time datetime="{{ deadline.date }}">{{ deadline.date | date: "%A, %B %-d, %Y" }}</time>{% endif %}
+			{{ deadline.name }}: 
+			{% if deadline.text %}<div style="display: inline;" class="{{ deadline.class }}">{{ deadline.text }}</div>
+			{% elsif deadline.time %}<time class="{{ deadline.class }}" datetime="{{ deadline.time }}">{{ deadline.time | date: "%A, %-d %B %Y %I:%M%P (%Z)" }}{% if site.TZ %} ({{ site.TZ }}){% endif %}</time>
+			{% elsif deadline.date %}<time class="{{ deadline.class }}"  datetime="{{ deadline.date }}">{{ deadline.date | date: "%A, %B %-d, %Y" }}</time>{% endif %}
 			{% if deadline.important %}</strong>{% endif %} 
 	</li>
 	{% endfor %}

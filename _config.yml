@@ -109,25 +109,31 @@ deadlines:
     #text: Saturday, October 9, 2021, 11:59am UTC
     time: 2021-10-09 11:59Z 
     important: true
+    class: important
   - name: Paper submission deadline
     type: submission
     #text: Friday, October 15, 2021, 11:59am UTC  
     time: 2021-10-15 11:59Z
     important: true
+    class: important
   - name: Supplementary material submission
     type: submission
     #text: Friday, October 22, 2021, 11:59am UTC 
     time: 2021-10-22 11:59Z
+    class: warning
   - name: Reviews released
     type: decision
     date: 2021-11-26
+    class: information
   - name: Author rebuttals due 
     #text: Sunday, December 5, 2021, 11:59am UTC
     time: 2021-12-05 11:59Z
     type: submission
+    class: optional
   - name: Final decisions
     type: decision
     date: 2022-01-18
+    class: information
   - name: Camera-ready deadline
     type: submission 
     #text: Wednesday, February 23, 2022, 11:59am UTC
@@ -135,6 +141,7 @@ deadlines:
   - name: Poster and thumbnail upload
     type: submission
     text: March 14th, 2022 (AOE)
+    class: optional
   - name: SlidesLive last upload
     type: submission
     text: Wednesday, March 14, 2022 (AOE)
@@ -177,16 +184,16 @@ places:
     lng: -0.3858
     icon: 🏨
     gmaps: "https://maps.app.goo.gl/UoiLjoKJgBCAUdqJ6" # Manual link
-    info: "5-minute walk from IVAM"
+    info: "10-minute walk from IVAM"
   - id: "hotel-nh-2"
-    name: "NH Valencia Center"
+    name: "NH Valencia Colon"
     category: "hotel"
     class: information
-    lat: 39.4925
-    lng: -0.3858
+    lat: 39.468682960530735
+    lng: -0.3725583603254982
     icon: 🏨
-    gmaps: "https://maps.app.goo.gl/UoiLjoKJgBCAUdqJ6" # Manual link
-    info: "5-minute walk from IVAM"
+    gmaps: "https://maps.app.goo.gl/yZt3p6Pq1DszHr2J7" # Manual link
+    info: "30-minute walk or 15 min bus ride from IVAM "
   - id: "seda"
     name: "La Lonja de la Seda de Valencia" 
     category: "point of interest"
@@ -194,7 +201,7 @@ places:
     lat: 39.47457415499538 
     lng: -0.37837929939902687
     icon: 🏛️
-    gmaps: "https://maps.app.goo.gl/HLf8k5MiBg8qTLTs8"
+    gmaps: "https://maps.app.goo.gl/66NJCXzb1QwuUxqZ9"
     info: "This grandiose building illustrates the city's Medieval riches with elaborate stonework & carvings."
   - id: "mercado-central"
     name: "Mercado Central de Valencia"
@@ -212,7 +219,7 @@ places:
     lat: 39.475253
     lng: -0.375441
     icon: ⛪
-    gmaps: "https://maps.app.goo.gl/z9wYyJ1vB2Q"
+    gmaps: "https://maps.app.goo.gl/iYaYLgxV6HwYKvf79"
     info: "A mix of Romanesque, Gothic, and Baroque styles, famously housing the Holy Chalice and the iconic Miguelete bell tower."
   - id: "torres-quart"
     name: "Torres de Quart"
