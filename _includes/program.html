@@ -1,9 +1,14 @@
 <div class="program-full">
+  {% assign print_page_md = site.pages | where: "name", "program-print.md" | first %}
+  {% assign print_page_html = site.pages | where: "name", "program-print.html" | first %}
+  {% assign print_page = print_page_md | default: print_page_html %}
+  {% if print_page %}
   <div style="text-align: right; margin-bottom: 20px;">
-    <a href="{{ '/program-print.html' | relative_url }}" target="_blank" style="text-decoration: none; font-weight: bold; color: #3465A4; padding: 10px; border: 1px solid #3465A4; border-radius: 5px;">
+    <a href="{{ print_page.url | relative_url }}" target="_blank" style="text-decoration: none; font-weight: bold; color: #3465A4; padding: 10px; border: 1px solid #3465A4; border-radius: 5px;">
       🖨️ View Printable Version
     </a>
   </div>
+  {% endif %}
   {% assign days = site.days | sort: 'date' %}
   {% assign days_col = site.collections | where: "label", "days" | first %}
   <div class="flex-container" style="align-items: flex-start;">
