@@ -82,6 +82,42 @@
   }
 }
 
+.timeline-card details {
+  cursor: pointer;
+}
+.timeline-card summary {
+  font-size: 1.1em;
+  font-weight: bold;
+  outline: none;
+  list-style: none;
+  position: relative;
+  padding-right: 20px;
+}
+.timeline-card summary::-webkit-details-marker {
+  display: none;
+}
+.timeline-card summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #3465A4;
+  font-size: 1.2em;
+  line-height: 1;
+}
+.timeline-card details[open] summary::after {
+  content: '-';
+}
+.session-extra {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #ddd;
+}
+@media (prefers-color-scheme: dark) {
+  .session-extra {
+    border-top-color: #555;
+  }
+}
 @media screen and (max-width: 800px) {
   .timeline::before {
     left: 20px;
@@ -118,11 +154,18 @@
         {% assign session_loc_icon = session.location_icon | default: loc_icon %}
         {% assign session_spk_icon = session.speaker_icon | default: spk_icon %}
         <div class="timeline-card">
-          <div class="title" style="display: block; font-size: 1.2em; margin-bottom: 8px;">{{ session.talk }}</div>
-          <div style="font-style: italic; color: #729FCF;">{{ session_loc_icon }} {{ session.location }}</div>
-          {% if session.speaker %}
-          <div style="margin-top: 8px;">{{ session_spk_icon }} <strong>Speaker:</strong> {{ session.speaker }}</div>
-          {% endif %}
+          <details>
+            <summary>{{ session.talk }}</summary>
+            <div class="session-extra">
+              <div style="font-style: italic; color: #729FCF;">{{ session_loc_icon }} {{ session.location }}</div>
+              {% if session.speaker %}
+              <div style="margin-top: 8px;">{{ session_spk_icon }} <strong>Speaker:</strong> {{ session.speaker }}</div>
+              {% endif %}
+              {% if session.details %}
+              <div style="margin-top: 10px; font-size: 0.95em;">{{ session.details | markdownify }}</div>
+              {% endif %}
+            </div>
+          </details>
         </div>
         {% endfor %}
       </div>
