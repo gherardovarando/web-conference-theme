@@ -40,9 +40,11 @@
           <span class="print-title">{{ session.talk }}</span>
         </div>
         <div class="print-meta">
+          {% if session.location %}
           <span>{{ session_loc_icon }} {{ session.location }}</span>
+          {% endif %}
           {% if session.speaker %}
-          &nbsp; | &nbsp; <span>{{ session_spk_icon }} {{ session.speaker }}</span>
+          {% if session.location %}&nbsp; | &nbsp;{% endif %}<span>{{ session_spk_icon }} {{ session.speaker }}</span>
           {% endif %}
         </div>
         {% if session.details %}

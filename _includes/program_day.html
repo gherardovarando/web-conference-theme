@@ -157,7 +157,9 @@
           <details>
             <summary>{{ session.talk }}</summary>
             <div class="session-extra">
+              {% if session.location %}
               <div style="font-style: italic; color: #729FCF;">{{ session_loc_icon }} {{ session.location }}</div>
+              {% endif %}
               {% if session.speaker %}
               <div style="margin-top: 8px;">{{ session_spk_icon }} <strong>Speaker:</strong> {{ session.speaker }}</div>
               {% endif %}
