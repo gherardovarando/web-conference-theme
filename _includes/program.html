@@ -5,8 +5,16 @@
     </a>
   </div>
   {% assign days = site.days | sort: 'date' %}
+  {% assign days_col = site.collections | where: "label", "days" | first %}
   {% for day in days %}
-    <h2><a href="{{ day.url | relative_url }}">{{ day.title }}</a> - {{ day.date | date: "%B %d, %Y" }}</h2>
+    <h2>
+      {% if days_col.output %}
+        <a href="{{ day.url | relative_url }}">{{ day.title }}</a>
+      {% else %}
+        {{ day.title }}
+      {% endif %}
+      - {{ day.date | date: "%B %d, %Y" }}
+    </h2>
     {% include program_day.html day=day %}
     <br>
   {% endfor %}
