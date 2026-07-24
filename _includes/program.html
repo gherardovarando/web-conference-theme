@@ -1,4 +1,9 @@
 <div class="program-full">
+  <div style="text-align: right; margin-bottom: 20px;">
+    <a href="{{ '/program-print.html' | relative_url }}" target="_blank" style="text-decoration: none; font-weight: bold; color: #3465A4; padding: 10px; border: 1px solid #3465A4; border-radius: 5px;">
+      🖨️ View Printable Version
+    </a>
+  </div>
   {% assign days = site.days | sort: 'date' %}
   {% for day in days %}
     <h2><a href="{{ day.url | relative_url }}">{{ day.title }}</a> - {{ day.date | date: "%B %d, %Y" }}</h2>

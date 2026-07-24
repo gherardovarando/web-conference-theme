@@ -1,0 +1,57 @@
+<div class="print-program">
+  <style>
+    body { font-family: "Times New Roman", Times, serif; color: black; background: white; margin: 20px; }
+    a { text-decoration: none; color: black; }
+    .no-print { display: inline-block; }
+    @media print {
+      .no-print { display: none !important; }
+      body { margin: 0; }
+    }
+    .print-day { margin-bottom: 40px; }
+    .print-session { margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 10px; page-break-inside: avoid; }
+    .print-time { font-weight: bold; margin-right: 15px; }
+    .print-title { font-weight: bold; font-size: 1.2em; }
+    .print-meta { font-style: italic; color: #555; margin-top: 5px; }
+    .print-details { margin-top: 10px; font-size: 0.95em; }
+  </style>
+  
+  <div class="no-print" style="margin-bottom: 20px; text-align: right;">
+    <button onclick="window.print()" style="padding: 10px 20px; font-size: 16px; cursor: pointer; border: 1px solid #3465A4; background-color: #3465A4; color: white; border-radius: 5px;">🖨️ Print Document</button>
+  </div>
+
+  <h1 style="text-align: center; border-bottom: 2px solid black; padding-bottom: 10px;">{{ site.title }} - Program</h1>
+
+  {% assign days = site.days | sort: 'date' %}
+  {% for day in days %}
+    <div class="print-day">
+      <h2 style="background-color: #f4f4f4; padding: 10px;">{{ day.title }} - {{ day.date | date: "%B %d, %Y" }}</h2>
+      
+      {% assign sorted_program = day.program | sort: "time" %}
+      {% assign loc_icon = day.location_icon | default: "Location:" %}
+      {% assign spk_icon = day.speaker_icon | default: "Speaker:" %}
+
+      {% for session in sorted_program %}
+      {% assign session_loc_icon = session.location_icon | default: loc_icon %}
+      {% assign session_spk_icon = session.speaker_icon | default: spk_icon %}
+      
+      <div class="print-session">
+        <div>
+          <span class="print-time">{{ session.time }}</span>
+          <span class="print-title">{{ session.talk }}</span>
+        </div>
+        <div class="print-meta">
+          <span>{{ session_loc_icon }} {{ session.location }}</span>
+          {% if session.speaker %}
+          &nbsp; | &nbsp; <span>{{ session_spk_icon }} {{ session.speaker }}</span>
+          {% endif %}
+        </div>
+        {% if session.details %}
+        <div class="print-details">
+          {{ session.details | markdownify }}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
