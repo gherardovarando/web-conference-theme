@@ -1,0 +1,8 @@
+<div class="program-full">
+  {% assign days = site.days | sort: 'date' %}
+  {% for day in days %}
+    <h2><a href="{{ day.url | relative_url }}">{{ day.title }}</a> - {{ day.date | date: "%B %d, %Y" }}</h2>
+    {% include program_day.html day=day %}
+    <br>
+  {% endfor %}
+</div>

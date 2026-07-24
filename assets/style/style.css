@@ -113,6 +113,7 @@ div.title {
 	width: 100%;
 	overflow: hidden;
 	background-color: white;
+	z-index: 1000;
 }
 
 
