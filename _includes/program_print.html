@@ -28,7 +28,7 @@
       
       {% assign sorted_program = day.program | sort: "time" %}
       {% assign loc_icon = day.location_icon | default: "Location:" %}
-      {% assign spk_icon = day.speaker_icon | default: "Speaker:" %}
+      {% assign spk_icon = day.speaker_icon | default: "" %}
 
       {% for session in sorted_program %}
       {% assign session_loc_icon = session.location_icon | default: loc_icon %}
